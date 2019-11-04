@@ -78,9 +78,7 @@ describe('American Express', function() {
   });
 });
 
-
-
-
+// VISA test function
 describe('Visa', function() {
   // Chai is an entire library of helper functions for tests!
   // Chai provides an assert that acts the same as our previous assert.
@@ -102,6 +100,7 @@ describe('Visa', function() {
   });
 });
 
+// MasterCard test Function
 describe('MasterCard', function() {
   // Chai lets you write more human-readable tests that throw helpful errors.
   // Expect syntax is one way to do this, but there are others. 
@@ -140,6 +139,7 @@ describe('MasterCard', function() {
 
 });
 
+// Discover Test Function
 describe('Discover', function () {
   // Tests without a function will be marked as "pending" and not run
   // Implement these tests (and others) and make them pass!
@@ -161,7 +161,7 @@ describe('Discover', function () {
     expect(detectNetwork('6523123456789012345')).to.equal('Discover');
   });
 
-
+  // loop through prefixes 644 - 649, lengths 16 and 19
   for (var prefix = 644; prefix <= 649; prefix++) {
     (function (prefix) {
       it('has a prefix of ' + prefix + ' and a length of 16', function () {
@@ -175,10 +175,11 @@ describe('Discover', function () {
   }
 });
 
+// Maestro test function 
 describe('Maestro', function() {
   // Write full test coverage for the Maestro card
   var expect = chai.expect;
-
+  // length function 
   var addLength = function (length) {
     let count = '';
     for (let i = 0; i < length; i++) {
@@ -187,6 +188,7 @@ describe('Maestro', function() {
     return count;
   }
 
+  // for loop for lengths 12-19, prefixes below
   for (var length = 12; length <= 19; length++) {
     (function (length) {
       it('has a prefix of 5018 and a length of ' + length, function () {
@@ -313,7 +315,7 @@ describe('China UnionPay', function () {
 
   var expect = chai.expect;
 
-  // loop for 622126-622925 for 16, 17, 18, 19
+  // for loop for 622126-622925 for 16, 17, 18, 19 lengths
   for (var prefix = 622126; prefix <= 622925; prefix++) {
     (function (prefix) {
       it('has a prefix of ' + prefix + ' and a length of 16', function () {
@@ -333,7 +335,7 @@ describe('China UnionPay', function () {
       });
     })(prefix)
   }
-  // loop for 624-626 for 16, 17, 18, 19
+  // for loop for 624-626 for 16, 17, 18, 19 lengths 
   for (var prefix = 624; prefix <= 626; prefix++) {
     (function (prefix) {
       it('has a prefix of ' + prefix + ' and a length of 16', function () {
@@ -353,7 +355,7 @@ describe('China UnionPay', function () {
       });
     })(prefix)
   }
-  // loop for 6282-6288 for 16, 17, 18, 19
+  // for loop for 6282-6288 for 16, 17, 18, 19 lengths
   for (var prefix = 6282; prefix <= 6288; prefix++) {
     (function (prefix) {
       it('has a prefix of ' + prefix + ' and a length of 16', function () {
