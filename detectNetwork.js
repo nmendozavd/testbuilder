@@ -46,6 +46,7 @@ var detectNetwork = function(cardNumber) {
     ChinaUnionPayPrefixes.push(i.toString());
   }
 
+  // for loop through prefixes array, if prefix is present, change var match to true 
   var match = false;
   for (var i = 0; i < ChinaUnionPayPrefixes.length; i++) {
     if (ChinaUnionPayPrefixes.indexOf(ChinaUnionPayPrefixes[i]) !== -1) {
