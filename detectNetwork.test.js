@@ -179,12 +179,30 @@ describe('Maestro', function() {
   // Write full test coverage for the Maestro card
   var expect = chai.expect;
 
-  it('has a prefix of 5018 and a length of 12', function () {
-    expect(detectNetwork('501812348512')).to.equal('Maestro');
-  });
+  var addLength = function (length) {
+    let count = '';
+    for (let i = 0; i < length; i++) {
+      count += '1';
+    }
+    return count;
+  }
 
-  it('has a prefix of 5020 and a length of 19', function () {
-    expect(detectNetwork('5020238495867392831')).to.equal('Maestro');
-  });
+  for (var length = 12; length <= 19; length++) {
+    (function (length) {
+      it('has a prefix of 5018 and a length of ' + length, function () {
+        expect(detectNetwork('5018' + addLength(length - 4))).to.equal('Maestro');
+      });
+      it('has a prefix of 5020 and a length of ' + length, function () {
+        expect(detectNetwork('5020' + addLength(length - 4))).to.equal('Maestro');
+      });
+      it('has a prefix of 5038 and a length of ' + length, function () {
+        expect(detectNetwork('5038' + addLength(length - 4))).to.equal('Maestro');
+      });
+      it('has a prefix of 6304 and a length of ' + length, function () {
+        expect(detectNetwork('6304' + addLength(length - 4))).to.equal('Maestro');
+      });
+    })(length)
+  }
+
 });
 
